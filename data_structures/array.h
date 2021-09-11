@@ -1,7 +1,8 @@
 #pragma once
 #include <stdexcept>
+#include "linear_structure.h"
 template<typename T>
-class Array
+class Array:public LinearStructure<T>
 {
     private:
 
