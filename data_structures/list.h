@@ -62,7 +62,6 @@ class List: public LinearStructure<T>
 	    }
 
 	}
-
 	virtual int find(const T & value)
 	{
 	    Node<T> * current;
@@ -98,6 +97,10 @@ class List: public LinearStructure<T>
 		previous = current;
 	    }
 
+	}
+	virtual void removeAt(int index)
+	{
+	    remove(operator[](index));
 	}
 	virtual	const T & operator[](unsigned index)
 	{

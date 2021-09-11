@@ -90,6 +90,10 @@ class Array:public LinearStructure<T>
 		resize(capacity / 2);
 	    }
 	}
+	virtual void removeAt(int index)
+	{
+	    remove(operator[](index));
+	}
 	virtual	const T & operator[](unsigned index)
 	{
 	    if(index >=length)

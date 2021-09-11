@@ -6,7 +6,7 @@ using namespace std;
 
 void test_structure(LinearStructure<int> &arr)
 {
-    int test_data[6] = { 1, -1, 2, 6, 7, 9};
+    int test_data[6] = { 1, 2, 6, 7, -1,9};
 
     int n = 10; 
     for(int i = 0; i < n;i++)
@@ -28,6 +28,8 @@ void test_structure(LinearStructure<int> &arr)
     arr.insert(9);
 
     arr.insertAt(-1,1);
+    arr.insertAt(-1,5);
+    arr.removeAt(1);
     for(int i = 0; i < arr.size();i++)
     {
 	assert(arr[i] == test_data[i]);
