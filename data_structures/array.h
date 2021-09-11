@@ -28,7 +28,7 @@ class Array:public LinearStructure<T>
 	{
 	    return capacity;
 	}
-	int size()
+	virtual	int size()
 	{
 	    return length;
 	}
@@ -36,7 +36,7 @@ class Array:public LinearStructure<T>
 	{
 	    data = new T[capacity];
 	}
-	void insert(const T & value)
+	virtual	void insert(const T & value)
 	{
 	    data[length] = value;
 	    length++; 
@@ -45,7 +45,23 @@ class Array:public LinearStructure<T>
 		resize(capacity * 2);
 	    } 
 	}
-	int find(const T & value)
+	virtual	void insertAt(const T & value, int index)
+	{
+
+	    int aux = data[index];
+	    for(int i = index + 1;i < length + 1;i++)
+	    {
+		std::swap(aux,data[i]);
+	    }
+	    data[index] = value;
+	    length++;
+	    if(length == capacity)
+	    {
+		resize(capacity * 2);
+	    }
+
+	}
+	virtual int find(const T & value)
 	{
 	    for(int i = 0;i < length;i++)
 	    {
@@ -56,7 +72,7 @@ class Array:public LinearStructure<T>
 	    }
 	    return -1;
 	}
-	void remove(const T & value)
+	virtual void remove(const T & value)
 	{
 	    if(length <= 0) return;
 
@@ -74,7 +90,7 @@ class Array:public LinearStructure<T>
 		resize(capacity / 2);
 	    }
 	}
-	const T & operator[](unsigned index)
+	virtual	const T & operator[](unsigned index)
 	{
 	    if(index >=length)
 	    {

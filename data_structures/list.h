@@ -36,6 +36,33 @@ class List: public LinearStructure<T>
 	    tail->next = NULL;
 	    length++;
 	}
+	virtual void insertAt(const T & value, int index)
+	{  
+	    Node<T> * current;
+	    Node<T> * previous = head;
+	    int i = 0;
+	    for(current = head->next;current!=NULL;current=current->next)
+	    {
+
+		if(index == i)
+		{
+		    Node<T> * temp = new Node<T>();
+		    temp->data = value;
+		    temp->next = current;
+		    previous->next = temp;
+		    if(current == tail)
+		    {
+			tail = temp;
+		    }
+		    length++;
+		    return;
+		}
+		previous = current;
+		i++;
+	    }
+
+	}
+
 	virtual int find(const T & value)
 	{
 	    Node<T> * current;
@@ -72,7 +99,7 @@ class List: public LinearStructure<T>
 	    }
 
 	}
-	const T & operator[](unsigned index)
+	virtual	const T & operator[](unsigned index)
 	{
 	    Node<T> * current;
 	    int i = 0;
