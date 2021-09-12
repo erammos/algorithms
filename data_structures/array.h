@@ -5,7 +5,6 @@ template<typename T>
 class Array:public LinearStructure<T>
 {
     private:
-
 	T * data;
 	int capacity;
 	int length;
@@ -23,7 +22,6 @@ class Array:public LinearStructure<T>
 	}
 
     public:
-
 	int cap()
 	{
 	    return capacity;

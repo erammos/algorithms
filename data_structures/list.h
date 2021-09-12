@@ -17,12 +17,11 @@ class List: public LinearStructure<T>
 	Node<T> * tail;
 	int length;
     public:
-	List()
+	List():length(0)
 	{
 	    head = new Node<T>();
 	    head->next = NULL;
 	    tail = head;
-	    length = 0;
 	}
 	virtual int size()
 	{
@@ -114,7 +113,6 @@ class List: public LinearStructure<T>
 		}
 		i++;
 	    }
-
 
 	    throw std::out_of_range("index out of bounds");
 	}	
