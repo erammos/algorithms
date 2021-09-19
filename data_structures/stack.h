@@ -1,27 +1,14 @@
 #pragma once
+#include "array.h"
 #include <iostream>
 #include <stdexcept>
-#include "array.h"
-template<typename T>
-class Stack 
-{
-    private:
-	Array<T> array;
-    public:
-	const T & top()
-	{
-	    return array[array.size() - 1];
-	}
-	bool isEmpty()
-	{
-	    return array.size() == 0;
-	}
-	void pop()
-	{
-	    array.removeAt(array.size() - 1);
-	}
-	void push(const T & value)
-	{
-	    array.insert(value);
-	}
+template <typename T> class Stack {
+private:
+  Array<T> array_;
+
+public:
+  const T &Top() { return array_[array_.Size() - 1]; }
+  bool IsEmpty() { return array_.Size() == 0; }
+  void Pop() { array_.RemoveAt(array_.Size() - 1); }
+  void Push(const T &value) { array_.Insert(value); }
 };

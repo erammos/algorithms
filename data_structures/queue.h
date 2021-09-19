@@ -1,27 +1,14 @@
 #pragma once
+#include "list.h"
 #include <iostream>
 #include <stdexcept>
-#include "array.h"
-template<typename T>
-class Queue 
-{
-    private:
-	List<T> list;
-    public:
-	const T & front()
-	{
-	    return list[0];
-	}
-	bool isEmpty()
-	{
-	    return list.size() == 0;
-	}
-	void pop()
-	{
-	    list.removeAt(0);
-	}
-	void push(const T & value)
-	{
-	    list.insert(value);
-	}
+template <typename T> class Queue {
+private:
+  List<T> list_;
+
+public:
+  const T &Front() { return list_[0]; }
+  bool IsEmpty() { return list_.Size() == 0; }
+  void Pop() { list_.RemoveAt(0); }
+  void Push(const T &value) { list_.Insert(value); }
 };
