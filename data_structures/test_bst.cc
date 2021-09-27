@@ -1,4 +1,4 @@
-#include "bst.h"
+#include "bst_recursive.h"
 #include <cassert>
 #include <iostream>
 #include <string>
