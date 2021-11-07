@@ -1,9 +1,10 @@
+#include <cassert>
+#include <iostream>
+
 #include "array.h"
 #include "list.h"
 #include "queue.h"
 #include "stack.h"
-#include <cassert>
-#include <iostream>
 using namespace std;
 
 void TestQueue() {
@@ -22,7 +23,6 @@ void TestQueue() {
   }
 }
 void TestStack() {
-
   int test_data[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   Stack<int> st;
   int n = 10;

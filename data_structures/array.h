@@ -1,8 +1,11 @@
 #pragma once
-#include "linear_structure.h"
 #include <stdexcept>
-template <typename T> class Array : public LinearStructure<T> {
-private:
+
+#include "linear_structure.h"
+
+template <typename T>
+class Array : public LinearStructure<T> {
+ private:
   T *data_;
   int capacity_;
   int length_;
@@ -17,7 +20,7 @@ private:
     data_ = temp;
   }
 
-public:
+ public:
   int Cap() { return capacity_; }
   virtual int Size() { return length_; }
   Array() : capacity_(5), length_(0) { data_ = new T[capacity_]; }
@@ -29,8 +32,7 @@ public:
     }
   }
   virtual void InsertAt(const T &value, int index) {
-
-    int aux = data_[index];
+    T aux = data_[index];
     for (int i = index + 1; i < length_ + 1; i++) {
       std::swap(aux, data_[i]);
     }
@@ -49,13 +51,11 @@ public:
     return -1;
   }
   virtual void Remove(const T &value) {
-    if (length_ <= 0)
-      return;
+    if (length_ <= 0) return;
 
     int index = Find(value);
 
-    if (index < 0)
-      throw std::logic_error("index not found");
+    if (index < 0) throw std::logic_error("index not found");
     for (int i = index; i < length_ - 1; i++) {
       data_[i] = data_[i + 1];
     }
@@ -66,7 +66,7 @@ public:
     }
   }
   virtual void RemoveAt(int index) { Remove(operator[](index)); }
-  virtual const T &operator[](unsigned index) {
+  virtual T &operator[](unsigned index) {
     if (index >= length_) {
       throw std::out_of_range("index out of bounds");
     }

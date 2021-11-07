@@ -1,19 +1,23 @@
 #pragma once
-#include "linear_structure.h"
 #include <iostream>
 #include <stdexcept>
-template <typename T> class Node {
-public:
+
+#include "linear_structure.h"
+
+template <typename T>
+class Node {
+ public:
   T data;
   Node *next;
 };
-template <typename T> class List : public LinearStructure<T> {
-private:
+template <typename T>
+class List : public LinearStructure<T> {
+ private:
   Node<T> *head_;
   Node<T> *tail_;
   int length_;
 
-public:
+ public:
   List() : length_(0) {
     head_ = new Node<T>();
     head_->next = NULL;
@@ -32,7 +36,6 @@ public:
     Node<T> *previous = head_;
     int i = 0;
     for (current = head_->next; current != NULL; current = current->next) {
-
       if (index == i) {
         Node<T> *temp = new Node<T>();
         temp->data = value;
@@ -77,7 +80,7 @@ public:
     }
   }
   virtual void RemoveAt(int index) { Remove(operator[](index)); }
-  virtual const T &operator[](unsigned index) {
+  virtual T &operator[](unsigned index) {
     Node<T> *current;
     int i = 0;
     for (current = head_->next; current != NULL; current = current->next) {
